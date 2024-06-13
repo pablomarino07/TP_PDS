@@ -35,13 +35,8 @@ function m = extraer_caractersiticas_NB(x,fm,n)
     H = H + X_pds(i) * log2((1/X_pds(i)));
   endfor
   fmean = (fmeanaux) / (sumpds);
-  [~,fmax] = max(X_pds);
-  function banda = calcula_banda(ff,f1,f2,Xf)
-     [~, idx1] = min(abs(ff - f1));
-     [~, idx2] = min(abs(ff - f2));
-     banda = Xf(idx1:idx2);
-     f_band = ff(idx1:idx2);
-  endfunction
+  [fmax,~] = max(X_pds);
+
 
 
  %-----------------------------------------------------------------------------------------------------------------------------
@@ -53,7 +48,8 @@ function m = extraer_caractersiticas_NB(x,fm,n)
      banda = Xf(idx1:idx2);
      f_band = ff(idx1:idx2);
   endfunction
-  Gamma = calcula_banda(f,fGamma1, fGamma2,X_pds);
+
+ Gamma = calcula_banda(f,fGamma1, fGamma2,X_pds);
   Theta = calcula_banda(f,theta1, theta2,X_pds);
   Alpha = calcula_banda(f,alpha1, alpha2,X_pds);
   LAlpha = calcula_banda(f,Lalpha1, Lalpha2,X_pds);
@@ -83,6 +79,10 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   caract(9, :) = calculate_stats(Total);
 
 
-  m=reshape(caract,[1,36]);
+  c=reshape(caract,[1,36]);
+  m=zeros(1,39);
+  m(37)=fmean;
+  m(38)=H;
+  m(39)=fmax;
 
   endfunction
