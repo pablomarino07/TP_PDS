@@ -26,23 +26,23 @@ function m = extraer_caractersiticas_NB(x,fm,n)
 
 
 %%----------------------------------------------------------------------------------------------------------------------------
-##  fmeanaux = 0;
-##  sumpds = 0;
-##  H=0;
-##  for i=1 : length(f)
-##    fmeanaux = fmeanaux + (f(i) * X_pds(i));
-##    sumpds = sumpds + X_pds(i);
-##    H = H + X_pds(i) * log2((1/X_pds(i)));
-##  endfor
-##  fmean = (fmeanaux) / (sumpds);
-##  [~,fmax] = max(X_pds);
-##  function banda = calcula_banda(ff,f1,f2,Xf)
-##     [~, idx1] = min(abs(ff - f1));
-##     [~, idx2] = min(abs(ff - f2));
-##     banda = Xf(idx1:idx2);
-##     f_band = ff(idx1:idx2);
-##  endfunction
-##
+  fmeanaux = 0;
+  sumpds = 0;
+  H=0;
+  for i=1 : length(f)
+    fmeanaux = fmeanaux + (f(i) * X_pds(i));
+    sumpds = sumpds + X_pds(i);
+    H = H + X_pds(i) * log2((1/X_pds(i)));
+  endfor
+  fmean = (fmeanaux) / (sumpds);
+  [~,fmax] = max(X_pds);
+  function banda = calcula_banda(ff,f1,f2,Xf)
+     [~, idx1] = min(abs(ff - f1));
+     [~, idx2] = min(abs(ff - f2));
+     banda = Xf(idx1:idx2);
+     f_band = ff(idx1:idx2);
+  endfunction
+
 
  %-----------------------------------------------------------------------------------------------------------------------------
 
