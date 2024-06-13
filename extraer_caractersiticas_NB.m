@@ -81,6 +81,9 @@ function m = extraer_caractersiticas_NB(x,fm,n)
 
   c=reshape(caract,[1,36]);
   m=zeros(1,39);
+  for i=1:36
+    m(i)=c(i);
+    endfor
   m(37)=fmean;
   m(38)=H;
   m(39)=fmax;
