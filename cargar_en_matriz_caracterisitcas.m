@@ -1,4 +1,4 @@
-function m = cargar_en_matriz_caracterisitcas()
+function [m,max_min] = cargar_en_matriz_caracterisitcas()
 
 num_files = 15;
 MHL=zeros(120,39);
