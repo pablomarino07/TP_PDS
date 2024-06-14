@@ -26,16 +26,16 @@ function m = extraer_caractersiticas_NB(x,fm,n)
 
 
 %%----------------------------------------------------------------------------------------------------------------------------
-  fmeanaux = 0;
-  sumpds = 0;
-  H=0;
-  for i=1 : length(f)
-    fmeanaux = fmeanaux + (f(i) * X_pds(i));
-    sumpds = sumpds + X_pds(i);
-    H = H + X_pds(i) * log2((1/X_pds(i)));
-  endfor
-  fmean = (fmeanaux) / (sumpds);
-  [fmax,~] = max(X_pds);
+##  fmeanaux = 0;
+##  sumpds = 0;
+##  H=0;
+##  for i=1 : length(f)
+##    fmeanaux = fmeanaux + (f(i) * X_pds(i));
+##    sumpds = sumpds + X_pds(i);
+##    H = H + X_pds(i) * log2((1/X_pds(i)));
+##  endfor
+##  fmean = (fmeanaux) / (sumpds);
+##  [fmax,~] = max(X_pds);
 
 
 
@@ -79,13 +79,13 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   caract(9, :) = calculate_stats(Total);
 
 
-  c=reshape(caract,[1,36]);
-  m=zeros(1,39);
-  for i=1:36
-    m(i)=c(i);
-    endfor
-  m(37)=fmean;
-  m(38)=H;
-  m(39)=fmax;
+  m=reshape(caract,[1,36]);
+##  m=zeros(1,39);
+##  for i=1:36
+##    m(i)=c(i);
+##    endfor
+##  m(37)=fmean;
+##  m(38)=H;
+##  m(39)=fmax;
 
   endfunction

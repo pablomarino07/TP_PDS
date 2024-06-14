@@ -9,24 +9,26 @@ function m = main_KNN()
   sumav=0;
   sumam=0;
 
-  k = 5;
+  k = 7;
 
  for j=1:15
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion1\\honest\\honest_subject%d_session1_probe.txt',j);
-    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion1\\lying\\lying_subject%d_session1_probe.txt',j);
+    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion3\\honest\\honest_subject%d_session3_probe.txt',j);
+    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion3\\lying\\lying_subject%d_session3_probe.txt',j);
 
     data = load(filename);
     data1 = load(filename);
     fm = 500;  % Frecuencia de muestreo
     caract = extraer_caractersiticas_NB(data, fm, 3);
     caract1 = extraer_caractersiticas_NB(data1, fm, 3);
-  for m=1:39
+  for m=1:36
 
       maximo=max_min(1,m);
       minimo=max_min(2,m);
+      aux=caract(m);
+      aux1=caract1(m);
       caract(m)=(aux-minimo)/(maximo-minimo);
-      caract1(m)=(aux-minimo)/(maximo-minimo);
+      caract1(m)=(aux1-minimo)/(maximo-minimo);
 
 
   endfor
@@ -58,8 +60,8 @@ function m = main_KNN()
     endif
   endfor
 
-  promv=(sumav/5)*100
-  promm=(sumam/5)*100
+  promv=(sumav/15)*100
+  promm=(sumam/15)*100
 
   m=(promm+promv)/2
 
