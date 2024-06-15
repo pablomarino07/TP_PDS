@@ -60,7 +60,7 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   Total = calcula_banda(f,fTotal1, fTotal2,X_pds);
 
  % Crear una matriz para almacenar las estadísticas
-  caract = zeros(9, 4);
+  caract = zeros(1, 39);
 
   % Definir una función auxiliar para calcular las estadísticas
   function stats = calculate_stats(vector)
@@ -68,24 +68,18 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   end
 
   % Calcular las estadísticas y almacenarlas en la matriz
-  caract(1, :) = calculate_stats(Gamma);
-  caract(2, :) = calculate_stats(Theta);
-  caract(3, :) = calculate_stats(Alpha);
-  caract(4, :) = calculate_stats(LAlpha);
-  caract(5, :) = calculate_stats(HAlpha);
-  caract(6, :) = calculate_stats(Beta);
-  caract(7, :) = calculate_stats(Lbeta);
-  caract(8, :) = calculate_stats(HBeta);
-  caract(9, :) = calculate_stats(Total);
+  caract(1:4) = calculate_stats(Gamma);
+  caract(5:8) = calculate_stats(Theta);
+  caract(9:12) = calculate_stats(Alpha);
+  caract(13:16) = calculate_stats(LAlpha);
+  caract(17:20) = calculate_stats(HAlpha);
+  caract(21:24) = calculate_stats(Beta);
+  caract(25:28) = calculate_stats(Lbeta);
+  caract(29:32) = calculate_stats(HBeta);
+  caract(33:36) = calculate_stats(Total);
 
-
-  c=reshape(caract,[1,36]);
-  m=zeros(1,39);
-  for i=1:36
-    m(i)=c(i);
-    endfor
-  m(37)=fmean;
-  m(38)=H;
-  m(39)=fmax;
+  caract(37)=fmean;
+  caract(38)=H;
+  caract(39)=fmax;
 
   endfunction
