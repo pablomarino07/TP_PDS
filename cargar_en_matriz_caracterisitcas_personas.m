@@ -1,7 +1,7 @@
 function m = cargar_en_matriz_caracterisitcas_6s_15()
 
 num_files = 14;
-MHL=zeros(140,36);
+MHL=zeros(140,39);
 sesiones = [1 2 3 4 5];
 suma=0;
 for j= 1: 5
@@ -10,7 +10,7 @@ for j= 1: 5
 for i = 1:num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion%d\\honest\\honest_subject%d_session%d_probe.txt', ses,i,ses);
+         filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject%d.session%d.electrodofp1.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------
@@ -20,11 +20,9 @@ for i = 1:num_files
          t= 0: 1/500 : tf - 1/500;
          caract = extraer_caractersiticas_NB(data,fm,3);
          % Convertir la matriz en un vector columna
-        caract_vector = caract(:);
-        caracteristicas = caract_vector';
-        length(caracteristicas);
+
         k=i+suma;
-        MHL(k,:)=caracteristicas;
+        MHL(k,:)=caract;
 end
     suma= suma + 14;
 endfor
@@ -35,7 +33,7 @@ for j =1: 5
 for i =1 :num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion%d\\lying\\lying_subject%d_session%d_probe.txt', ses,i,ses);
+     filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject%d.session%d.electrodofp1.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------
@@ -45,17 +43,33 @@ for i =1 :num_files
          t= 0: 1/500 : tf - 1/500;
          caract = extraer_caractersiticas_NB(data,fm,3);
          % Convertir la matriz en un vector columna
-        caract_vector = caract(:);
-        caracteristicas = caract_vector';
-        length(caracteristicas);
+
         k=i+suma;
-        MHL(k,:)=caracteristicas;
+        MHL(k,:)=caract;
 
 
 
 end
   suma=suma+14;
 endfor
+
+max_min = zeros(2,39);
+aux=0;
+    for i=1:39
+      maximo=max(MHL(:,i));
+      max_min(1,i)=maximo;
+      minimo=min(MHL(:,i));
+      max_min(2,i)=minimo;
+        for j=1:120
+              aux=MHL(j,i);
+              MHL(j,i)=(aux-minimo)/(maximo-minimo);
+        endfor
+      endfor
+      m=MHL;
+    end
+
+
+
 m=MHL;
 
 end

@@ -1,32 +1,26 @@
-function m = main_fp1()
+function m = main_fp1_persona()
   pkg load statistics;
-  % Cargar los datos de entrenamiento KNN
-  [X_train,max_min] = cargar_en_matriz_caracterisitcas();
-  Y_train = zeros(1, 120);  % Vector de etiquetas de longitud 120 lleno de ceros
-  Y_train(1:60) = 1;
-  Y_train(61:end) = 0;
+
+  % Cargar los datos de entrenamiento
+  X_train = cargar_en_matriz_caracterisitcas_6s_15();
+  Y_train = zeros(1, 140);  % Vector de etiquetas de longitud 120 lleno de ceros
+  Y_train(1:70) = 1;
+  Y_train(71:end) = 0;
   sumav=0;
   sumam=0;
-  %-------------------------------------------------------------------
-  %Entrenamiendo NAIVE BAYES
-  PDF = 'gaussian'; % There are 2 types of options: 'gaussian' and 'exponential'
-  mdl = NaiveBayes(PDF);
-  mdl = mdl.fit(X_train,Y_train);
-  sumavnb=0;
-  sumamnb=0;
+  k = 5;
 
-  k=5;
-  for j=1:15
-      % Cargar datos de prueba
-      filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject%d.session4.electrodofp1.txt',j);
-      filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject%d.session4.electrodofp1.txt',j);
+  for i = 1:5
+    % Cargar datos de prueba                                                                                                     #lying
+    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject15.session%d.electrodofp1.txt',j);
+      filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject15.session%d.electrodofp1.txt',j);
 
-      data = load(filename);
-      data1 = load(filename1);
-      fm = 500;  % Frecuencia de muestreo
-      X_test = extraer_caractersiticas_NB(data, fm, 3);
-      X_test1 = extraer_caractersiticas_NB(data1, fm, 3);
-      for m=1:39
+    data = load(filename);
+    data1 = load(filename1);
+    fm = 500;  % Frecuencia de muestreo
+    X_test = extraer_caractersiticas_NB(data, fm, 3);
+    X_test1 = extraer_caractersiticas_NB(data1, fm, 3);
+ for m=1:39
          maximo=max_min(1,m);
          minimo=max_min(2,m);
          aux=X_test(m);
