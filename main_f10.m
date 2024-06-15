@@ -1,4 +1,4 @@
-function m = main_KNN()
+function m = main_f10()
   pkg load statistics;
 
   % Cargar los datos de entrenamiento KNN
@@ -23,8 +23,8 @@ function m = main_KNN()
 
  for j=1:15
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session3.electrodofp1.txt',j);
-    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session3.electrodofp1.txt',j);
+    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session3.electrodofp10.txt',j);
+    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session3.electrodofp10.txt',j);
 
     data = load(filename);
     data1 = load(filename);
@@ -93,6 +93,4 @@ function m = main_KNN()
 
 
 endfunction
-
-
 

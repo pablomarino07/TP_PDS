@@ -1,4 +1,4 @@
-function m = main_KNN()
+function m = main_fp1()
   pkg load statistics;
 
   % Cargar los datos de entrenamiento KNN
@@ -93,6 +93,4 @@ function m = main_KNN()
 
 
 endfunction
-
-
 

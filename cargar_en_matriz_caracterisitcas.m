@@ -7,10 +7,11 @@ suma=0;
 for j= 1: 4
  ses= sesiones(j);
 % Bucle para cargar cada archivo
+
 for i = 1:num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion%d\\honest\\honest_subject%d_session%d_probe.txt', ses,i,ses);
+   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session%d.electrodofp2.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------
@@ -32,7 +33,7 @@ for j =1: 4
 for i =1 :num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TpFinal\\Base de Datos EEG\\Pruebas\\solo_sesion%d\\lying\\lying_subject%d_session%d_probe.txt', ses,i,ses);
+   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session%d.electrodofp2.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------
@@ -53,18 +54,18 @@ end
   suma=suma+15;
 endfor
 
-aux=0;
 max_min = zeros(2,39);
-for i=1:39
-  maximo=max(MHL(:,i));
-  max_min(1,i)=maximo;
-  minimo=min(MHL(:,i));
-  max_min(2,i)=minimo;
-  for j=1:120
-        aux=MHL(j,i);
-        MHL(j,i)=(aux-minimo)/(maximo-minimo);
-    endfor
-  endfor
+##aux=0;
+##for i=1:39
+##  maximo=max(MHL(:,i));
+##  max_min(1,i)=maximo;
+##  minimo=min(MHL(:,i));
+##  max_min(2,i)=minimo;
+##  for j=1:120
+##        aux=MHL(j,i);
+##        MHL(j,i)=(aux-minimo)/(maximo-minimo);
+##    endfor
+##  endfor
   m=MHL;
 
 
