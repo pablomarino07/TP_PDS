@@ -1,8 +1,8 @@
 function [m,max_min] = cargar_en_matriz_caracterisitcas()
 
 num_files = 15;
-MHL=zeros(120,39);
-sesiones = [1 2 4 5];
+MHL=zeros(120,36);
+sesiones = [1 3 4 5];
 suma=0;
 for j= 1: 4
  ses= sesiones(j);
@@ -11,7 +11,7 @@ for j= 1: 4
 for i = 1:num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session%d.electrodofp2.txt',i,ses);
+   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session%d.electrodofp1.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ for j =1: 4
 for i =1 :num_files
      ##-------------------------------------------------------------------------------------------------
   % Crear el nombre del archivo
-   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session%d.electrodofp2.txt',i,ses);
+   filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session%d.electrodofp1.txt',i,ses);
     % Leer el archivo y almacenarlo en una variable
     data = load(filename);  % Cargar los números del archivo
     ##-------------------------------------------------------------------------------------------------

@@ -27,7 +27,7 @@ function m = main_f10()
     filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session3.electrodofp10.txt',j);
 
     data = load(filename);
-    data1 = load(filename);
+    data1 = load(filename1);
     fm = 500;  % Frecuencia de muestreo
     caract = extraer_caractersiticas_NB(data, fm, 3);
     caract1 = extraer_caractersiticas_NB(data1, fm, 3);

@@ -23,11 +23,11 @@ function m = main_fp1()
 
  for j=1:15
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session3.electrodofp1.txt',j);
-    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session3.electrodofp1.txt',j);
+    filename = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\honest\\honest.subject%d.session2.electrodofp1.txt',j);
+    filename1 = sprintf('C:\\Users\\pablo\\Desktop\\Trabajo Señales\\TP_PDS\\datos\\lying\\lying.subject%d.session2.electrodofp1.txt',j);
 
     data = load(filename);
-    data1 = load(filename);
+    data1 = load(filename1);
     fm = 500;  % Frecuencia de muestreo
     caract = extraer_caractersiticas_NB(data, fm, 3);
     caract1 = extraer_caractersiticas_NB(data1, fm, 3);

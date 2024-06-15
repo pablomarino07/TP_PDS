@@ -1,4 +1,4 @@
-function m = extraer_caractersiticas_NB(x,fm,n)
+function caract= extraer_caractersiticas_NB(x,fm,n)
   pkg load signal;
   X = fft(x); #Saco la transformada de x
   N = length(X); #Obtengo cantidad de muestras
@@ -60,7 +60,7 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   Total = calcula_banda(f,fTotal1, fTotal2,X_pds);
 
  % Crear una matriz para almacenar las estadísticas
-  caract = zeros(1, 39);
+  caract = zeros(1, 36);
 
   % Definir una función auxiliar para calcular las estadísticas
   function stats = calculate_stats(vector)
@@ -77,9 +77,9 @@ function m = extraer_caractersiticas_NB(x,fm,n)
   caract(25:28) = calculate_stats(Lbeta);
   caract(29:32) = calculate_stats(HBeta);
   caract(33:36) = calculate_stats(Total);
-
-  caract(37)=fmean;
-  caract(38)=H;
-  caract(39)=fmax;
+##
+##  caract(37)=fmean;
+##  caract(38)=H;
+##  caract(39)=fmax;
 
   endfunction
