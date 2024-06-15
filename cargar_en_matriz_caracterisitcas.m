@@ -1,7 +1,7 @@
 function [m,max_min] = cargar_en_matriz_caracterisitcas()
 
 num_files = 15;
-MHL=zeros(120,36);
+MHL=zeros(120,39);
 sesiones = [1 2  4 5];
 suma=0;
 for j= 1: 4
@@ -54,8 +54,8 @@ end
 endfor
 
 aux=0;
-max_min = zeros(2,36);
-for i=1:36
+max_min = zeros(2,39);
+for i=1:39
   maximo=max(MHL(:,i));
   max_min(1,i)=maximo;
   minimo=min(MHL(:,i));
