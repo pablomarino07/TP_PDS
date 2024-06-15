@@ -1,4 +1,4 @@
-function m = cargar_en_matriz_caracterisitcas_6s_15()
+function m = cargar_en_matriz_caracterisitcas_personas()
 
 num_files = 14;
 MHL=zeros(140,39);
@@ -60,17 +60,16 @@ aux=0;
       max_min(1,i)=maximo;
       minimo=min(MHL(:,i));
       max_min(2,i)=minimo;
-        for j=1:120
+        for j=1:140
               aux=MHL(j,i);
               MHL(j,i)=(aux-minimo)/(maximo-minimo);
         endfor
       endfor
-      m=MHL;
-    end
 
 
 
-m=MHL;
+   m=MHL;
+
+
 
 end
-
