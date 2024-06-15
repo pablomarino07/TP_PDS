@@ -23,8 +23,6 @@ function caract= extraer_caractersiticas_NB(x,fm,n)
   fTotal1 = 4;
   fTotal2 = 35;
   X_pds = (1/(fm*N) * abs(X).^2); #Calculo de densidad espectral de potensia de la fft de x
-
-
 %%----------------------------------------------------------------------------------------------------------------------------
   fmeanaux = 0;
   sumpds = 0;
@@ -36,12 +34,7 @@ function caract= extraer_caractersiticas_NB(x,fm,n)
   endfor
   fmean = (fmeanaux) / (sumpds);
   [~,fmax] = max(X_pds);
-
-
-
  %-----------------------------------------------------------------------------------------------------------------------------
-
-
   function banda = calcula_banda(ff,f1,f2,Xf)
      [~, idx1] = min(abs(ff - f1));
      [~, idx2] = min(abs(ff - f2));
@@ -49,7 +42,7 @@ function caract= extraer_caractersiticas_NB(x,fm,n)
      f_band = ff(idx1:idx2);
   endfunction
 
- Gamma = calcula_banda(f,fGamma1, fGamma2,X_pds);
+  Gamma = calcula_banda(f,fGamma1, fGamma2,X_pds);
   Theta = calcula_banda(f,theta1, theta2,X_pds);
   Alpha = calcula_banda(f,alpha1, alpha2,X_pds);
   LAlpha = calcula_banda(f,Lalpha1, Lalpha2,X_pds);
@@ -60,7 +53,7 @@ function caract= extraer_caractersiticas_NB(x,fm,n)
   Total = calcula_banda(f,fTotal1, fTotal2,X_pds);
 
  % Crear una matriz para almacenar las estadísticas
-  caract = zeros(1, 36);
+  caract = zeros(1, 39);
 
   % Definir una función auxiliar para calcular las estadísticas
   function stats = calculate_stats(vector)
@@ -77,9 +70,8 @@ function caract= extraer_caractersiticas_NB(x,fm,n)
   caract(25:28) = calculate_stats(Lbeta);
   caract(29:32) = calculate_stats(HBeta);
   caract(33:36) = calculate_stats(Total);
-##
-##  caract(37)=fmean;
-##  caract(38)=H;
-##  caract(39)=fmax;
+  caract(37)=fmean;
+  caract(38)=H;
+  caract(39)=fmax;
 
   endfunction
