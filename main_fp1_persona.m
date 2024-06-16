@@ -2,18 +2,27 @@ function m = main_fp1_persona()
   pkg load statistics;
 
   % Cargar los datos de entrenamiento
-  X_train = cargar_en_matriz_caracterisitcas_personas();
+  [X_train,max_min] = cargar_en_matriz_caracterisitcas_personas();
   Y_train = zeros(1, 140);  % Vector de etiquetas de longitud 120 lleno de ceros
   Y_train(1:70) = 1;
   Y_train(71:end) = 0;
   sumav=0;
   sumam=0;
-  k = 5;
 
-  for i = 1:15
+    %-------------------------------------------------------------------
+  %Entrenamiendo NAIVE BAYES
+  PDF = 'gaussian'; % There are 2 types of options: 'gaussian' and 'exponential'
+  mdl = NaiveBayes(PDF);
+  mdl = mdl.fit(X_train,Y_train);
+  sumavnb=0;
+  sumamnb=0;
+
+  k = 7;
+
+  for i = 1:5
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject15.session%d.electrodofp1.txt',j);
-      filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject15.session%d.electrodofp1.txt',j);
+    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject3.session%d.electrodofp1.txt',i);
+     filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject3.session%d.electrodofp1.txt',i);
 
     data = load(filename);
     data1 = load(filename1);
@@ -50,15 +59,15 @@ function m = main_fp1_persona()
         sumamnb++;
       endif
   endfor
-  promv=(sumav/15)*100;
-  promm=(sumam/15)*100;
+  promv=(sumav/5)*100;
+  promm=(sumam/5)*100;
   m=(promm+promv)/2;
 
   printf('Con un K= %d, Promedio de verdad= %.2f, Promedio de mentira= %.2f\n', k, promv, promm);
   printf('Promedio de efectividad= %.2f\n', m);
 
-  promvnb=(sumavnb/15)*100;
-  prommnb=(sumamnb/15)*100;
+  promvnb=(sumavnb/5)*100;
+  prommnb=(sumamnb/5)*100;
   m2=(promvnb+prommnb)/2;
 
   printf('Promedio de verdad NB= %.2f, Promedio de mentira NB= %.2f\n', promvnb, prommnb);
