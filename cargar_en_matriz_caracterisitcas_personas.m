@@ -3,7 +3,7 @@ function  [m,max_min] = cargar_en_matriz_caracterisitcas_personas()
 num_files = 14;
 MHL=zeros(140,39);
 sesiones = [1 2 3 4 5];
-personas = [1 2 4 5 6 7 8 9 10 11 12 13 14 15];
+personas = [1 2 3 4 5 6 7 8 10 11 12 13 14 15];
 suma=0;
 for j= 1: 5
  ses= sesiones(j);
@@ -57,18 +57,18 @@ end
 endfor
 
 max_min = zeros(2,39);
-aux=0;
-    for i=1:39
-      maximo=max(MHL(:,i));
-      max_min(1,i)=maximo;
-      minimo=min(MHL(:,i));
-      max_min(2,i)=minimo;
-        for j=1:140
-              aux=MHL(j,i);
-              MHL(j,i)=(aux-minimo)/(maximo-minimo);
-        endfor
-      endfor
-
+##aux=0;
+##    for i=1:39
+##      maximo=max(MHL(:,i));
+##      max_min(1,i)=maximo;
+##      minimo=min(MHL(:,i));
+##      max_min(2,i)=minimo;
+##        for j=1:140
+##              aux=MHL(j,i);
+##              MHL(j,i)=(aux-minimo)/(maximo-minimo);
+##        endfor
+##      endfor
+##
 
 
    m=MHL;

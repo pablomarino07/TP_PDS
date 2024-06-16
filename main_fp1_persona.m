@@ -21,8 +21,8 @@ function m = main_fp1_persona()
 
   for i = 1:5
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject3.session%d.electrodofp1.txt',i);
-     filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject3.session%d.electrodofp1.txt',i);
+    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject9.session%d.electrodofp1.txt',i);
+     filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject9.session%d.electrodofp1.txt',i);
 
     data = load(filename);
     data1 = load(filename1);
