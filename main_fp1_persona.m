@@ -21,15 +21,15 @@ function m = main_fp1_persona()
 
   for i = 1:5
     % Cargar datos de prueba
-    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject9.session%d.electrodofp1.txt',i);
-     filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject9.session%d.electrodofp1.txt',i);
+    filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject1.session%d.electrodofp1.txt',i);
+     filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject1.session%d.electrodofp1.txt',i);
 
     data = load(filename);
     data1 = load(filename1);
     fm = 500;  % Frecuencia de muestreo
-    X_test = extraer_caractersiticas_NB(data, fm, 3);
-    X_test1 = extraer_caractersiticas_NB(data1, fm, 3);
- for m=1:39
+    X_test = extraer_caractersiticas_NB_36(data, fm, 3);
+    X_test1 = extraer_caractersiticas_NB_36(data1, fm, 3);
+ for m=1:36
          maximo=max_min(1,m);
          minimo=max_min(2,m);
          aux=X_test(m);

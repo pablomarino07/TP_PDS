@@ -1,7 +1,7 @@
 function [m,max_min] = cargar_en_matriz_caracterisitcas()
 num_files = 15;
-MHL=zeros(120,39);
-sesiones = [2 3 4 5];
+MHL=zeros(120,36);
+sesiones = [1 2 3 4];
 suma=0;
 for j= 1: 4
   ses= sesiones(j);
@@ -17,7 +17,7 @@ for j= 1: 4
              fm=500;   #Es la frecuencia de muestreo que tiene la BD
              tf = N/500; #Tiempo final en segundo
              t= 0: 1/500 : tf - 1/500;
-             caract = extraer_caractersiticas_NB(data,fm,3);
+             caract = extraer_caractersiticas_NB_36(data,fm,3);
              % Convertir la matriz en un vector columna
              k=i+suma;
             MHL(k,:)=caract;
@@ -39,7 +39,7 @@ for j =1: 4
              fm=500;   #Es la frecuencia de muestreo que tiene la BD
              tf = N/500; #Tiempo final en segundo
              t= 0: 1/500 : tf - 1/500;
-             caract = extraer_caractersiticas_NB(data,fm,3);
+             caract = extraer_caractersiticas_NB_36(data,fm,3);
 
              % Convertir la matriz en un vector columna
              k=i+suma;
@@ -47,9 +47,9 @@ for j =1: 4
     end
   suma=suma+15;
 endfor
-max_min = zeros(2,39);
+max_min = zeros(2,36);
 ##aux=0;
-##for i=1:39
+##for i=1:36
 ##  maximo=max(MHL(:,i));
 ##  max_min(1,i)=maximo;
 ##  minimo=min(MHL(:,i));
@@ -59,6 +59,6 @@ max_min = zeros(2,39);
 ##          MHL(j,i)=(aux-minimo)/(maximo-minimo);
 ##    endfor
 ##  endfor
-  m=MHL;
+    m=MHL;
 end
 

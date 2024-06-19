@@ -18,22 +18,22 @@ function m = main_fp1()
   k=5;
   for j=1:15
       % Cargar datos de prueba
-      filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject%d.session1.electrodofp1.txt',j);
-      filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject%d.session1.electrodofp1.txt',j);
+      filename = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\honest\\honest.subject%d.session5.electrodofp1.txt',j);
+      filename1 = sprintf('C:\\Users\\Pablo\\Documents\\GitHub\\TP_PDS\\datos\\lying\\lying.subject%d.session5.electrodofp1.txt',j);
 
       data = load(filename);
       data1 = load(filename1);
       fm = 500;  % Frecuencia de muestreo
-      X_test = extraer_caractersiticas_NB(data, fm, 3);
-      X_test1 = extraer_caractersiticas_NB(data1, fm, 3);
-##      for m=1:39
+      X_test = extraer_caractersiticas_NB_36(data, fm, 3);
+      X_test1 = extraer_caractersiticas_NB_36(data1, fm, 3);
+##      for m=1:36
 ##         maximo=max_min(1,m);
 ##         minimo=max_min(2,m);
 ##         aux=X_test(m);
 ##         aux1=X_test1(m);
 ##         X_test(m)=(aux-minimo)/(maximo-minimo);
 ##         X_test1(m)=(aux1-minimo)/(maximo-minimo);
-##      endf or
+##      endfor
       % Implementación manual de KNN
       y_pred = knn_predict(X_train, Y_train, X_test, k);
       if(y_pred == 1)
